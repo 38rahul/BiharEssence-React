@@ -1,0 +1,81 @@
+npm run start or npm start
+nmp run build : No shortcut
+
+We can write react without jSX
+React is seperate
+JSX is seperate
+Lots of developer think that both are same thing, No
+
+-> JSX is different than Html
+
+JSX is a Html like Syntax
+
+
+Question ??
+
+-> Do we write code for machine of Humans ??
+1st for humans then for machines
+
+
+transpiled the code before it goes to js engine
+
+transpiled -> converted to the code that browser can understand.
+
+Transpiling is done by parsel -> Babel package transpile.
+
+babel -> it takes your jsx and it converts it to the code that js engine understands
+
+Read about Babel
+
+
+
+
+=========================  JSX ========================
+
+If you write curly braces inside JSX, you can run any piece of js expression.
+JSX is mix of html and javascript.
+
+jsx takes care of injection attck.
+snitizes everything.
+
+
+
+cross site scripting -> it can steal cookies, read local storage, session storage, get information about your laptop
+injection attack
+
+
+================= These three things are same things==================
+{Title()}
+{<Title/>}
+{<These></Title>}
+
+ 
+Notes:
+
+// React.CreateElement => JS Object => Render to dom=> it becomes html element(HTMl element)
+
+
+// React component, 2 types of components
+// 1: Class Based component - OLD -> Uses javascript classes
+// 2: Functional Component  - NEW -> Uses Javascript Functions
+
+// React Functional Component -> it is juse a Javascript functions
+// when you are creating any functional component name starts with capital letter otherwise you will get error
+// A functional Component is a Normal JS funtions which return some  jsx Element/code
+// A function which is returning some jsx is a functional component.
+
+// you won't find lot of people writing return 
+
+// what is the difference between react element and react Component
+
+
+// JSX (transpiled before it reaches the JS) - PARCEL - Babel
+// JSX => babel transpiles it to React.CreateElement => React Element Object => Render to dom=> it becomes html element (HTMl element)
+
+
+// what is component conpositions ??
+// putting one components inside another.
+
+
+
+

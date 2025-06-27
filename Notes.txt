@@ -1,0 +1,8 @@
+Emmet: VS code internally uses it. it generates some code for you
+
+
+Commands: 
+npm install --> bring node modules in your project
+npx parcel index.html  -> execute the parcel
+mpm -> to install
+
