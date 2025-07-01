@@ -1,0 +1,32 @@
+Seperation of Concern
+Single Resposiblity Principal 
+========================useEffect()====================
+purpose of useEffect ??
+it will take 2 Arguments:
+    useEffect(() =>{
+        console.
+    })
+what is parameters ? what is Arguments ??
+
+our browser blocks us to call an API from 1 origin to different Origin.
+optional Chaining in jS
+
+Shimmer UI
+
+https://johannes-z.github.io/office-ui-fabric-vue/components/progress/shimmer.html#overview
+
+conditional Rendering
+
+
+
+
+==> Whenever you change a local state variable react re-renders the component. 
+Example: if we type any character to search any thing , as and when we type a a character react renders the component
+
+
+
+==> Whenever state variable updates, react triggers a reconciliation cycle (re-renders the component). 
+
+
+
+

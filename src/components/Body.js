@@ -1,13 +1,18 @@
 import resList from "../../utils/mockData"
 import RestaurantCard from "../components/RestaurantCard"
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import Shimmer from "./Shimmer";
 
 
 
 const Body = () => {
 
   // Local State Variable - Super powerful variable
-  const [listOfRestaurant, setListOfRestaurant] = useState(resList);
+  const [listOfRestaurant, setListOfRestaurant] = useState(resList);   // []
+  const [filteredListOfRestaurant, setfilteredListOfRestaurant] = useState(resList);   // []
+  const [searchText, setSearchText] = useState("");
+
+  console.log("Body Rendered");
 
   //const arr = useState(resList)
 
@@ -75,29 +80,66 @@ const Body = () => {
     //     }
     // ];
 
-    return (
+    useEffect(() =>{
+        fetchData();
+    }, []);
+//6205289803: 2400: kunal kumar gupta: Balagi Elecricals
+
+    // Api Call
+    const fetchData =async()=> {
+      const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.547077610639285&lng=73.80271643400191&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");  
+      // given this method by browser   
+
+    const json = await data.json();
+    console.log(json?.data?.cards[3].restaurants?.info);  // 43: 00 min
+
+    setListOfRestaurant(json)
+  };
+
+  // if(listOfRestaurant.length==0){
+  //   return <Shimmer/>
+  // } 
+  // conditional Rendering
+  // listOfRestaurant.length== 0 ? <Shimmer/>: 
+
+    return  filteredListOfRestaurant.length === 0 ? <Shimmer/>:  (
         <div className="body">
-            <div 
+              <div 
                 className="filter"> 
+                <div className="search">
+                  <input type="text" className="search-box" value={searchText}
+                   onChange={(e) =>{
+                    setSearchText(e.target.value);
+                          
+                  }}
+                  />
+                  <button  
+                  onClick={() => {          
+                    const filteredRestaurant = listOfRestaurant.filter(res =>  res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                    setfilteredListOfRestaurant(filteredRestaurant);
+
+                  }}>Search</button>
+
+                </div>
+
                 <button className="filter-btn" 
                 onClick={() =>{
-                   let  filteredlistOfRestaurant = resList.filter(res=> res.info.avgRating >4);
-                    setListOfRestaurant(filteredlistOfRestaurant);
+                   let  filteredlistOfRestaurant = listOfRestaurant.filter(res=> res.info.avgRating >4);
+                    setfilteredListOfRestaurant(filteredlistOfRestaurant);
 
                 }} 
                 > 
                 Top Rated Restaurants</button>
-            </div>
+              </div>
 
             <div className="res-container">
                 {
-                listOfRestaurant.map((restaurant) =>(
+                filteredListOfRestaurant.map((restaurant) =>(
                      <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>)
                 )
                  }
-
-            </div>
-        </div>
+              </div>
+          </div>
         
     )
 };
