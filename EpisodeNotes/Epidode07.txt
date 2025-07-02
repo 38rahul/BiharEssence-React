@@ -1,0 +1,11 @@
+command: 
+npm i react-router-dom
+
+Routing Configuration:
+
+
+==
+
+Racfe: Short hand to create component.
+
+

@@ -1,0 +1,158 @@
+ config Driven UI. Swiggy, zomatto, Paytm
+
+-> Everything that react can do, you can do it using Normal -> Html, Js and Css.
+Then  why React ??
+
+-> Any framework out there whatever you can do, you can do it using -> Html, Js and Css..
+At the End of the Day -> React is also  using Javascript behind the scene
+
+The Beauty of using a framework or a Library is : it makes developer Experience easy.
+it makes you write less code and do more on the web page.
+This is the major job of Framework or a Library
+
+==Best Practice
+
+-> Seperate files for Seperate components
+
+folder Structure
+
+Goodle these topics and read:
+
+1:  react file structure and read
+
+components
+    Header.jsx
+    Header.js
+    Header.tsx 
+
+    which is good ?? any one js or jsx
+    it will make 0 difference.
+
+
+Export component and import component
+
+-> whenever you have mocked data/ Hard coded data, you should never keep it in your componet file.
+This is industry standard, baest practice.
+
+keep it inside a Seperate file. Keep it inside Utils folder -> constants.js
+
+-> Keep your Constant in Capital Letter SNake Case.
+
+
+================  export imports =============
+
+2 types
+
+   1. default export/import -> 
+   2. named export/import  -> is used when in a Single file you have to export multiple things. while import use {} brackets
+
+
+        example -> constants.js for export and RestaurantCard for import
+        e.g.. export const LOGO_URL = "" ;
+
+-> you can also export your component using named export 
+
+
+2 Types of Export/Import 
+
+    -> Default Export /Import
+
+        export default Component
+        import Component from "path";
+
+    -> Named Export/Import
+
+        export const Component
+        import {Component} from "path";
+
+--> When you have to export multiple things use Named export.
+
+Question Home work : Can I use default export along with Named Export ??
+
+component file sshould not exceed more than 100 lines
+keep you component small and lcean
+
+
+========50:: minute ========Make Our App Dynamic==============
+-> top rated Restaurants feature
+-> Even Handler 
+
+-> when you have a react App, you have 2 Layer
+    1: UI Layer   -> will display what is being sent by Data Layer.
+    2: Data Layer
+
+   -------- Event Handler ---------
+   onMouseOver() = {}
+   onClick() = {}
+
+================ React Super power ==================
+    -> React is fast in DOM Manipulation.
+
+    suppose you have to keep your data Layer and UI layer consistent whith each other that is where react comes into picture.
+    And all the other frameworks.. Angular, React, Vue is trying to solve this, that UI Layer and Data Layer should work with each other in Sync.
+    if my Data Changes my UI changes.
+
+    --Why React is Fast ?--
+        Because:
+        1: It can do faster DOM Manipulation
+        2: It can do Efficient DOM Manipulation
+        3: Virtual DOM
+        4: Diff Algorith
+        5: Reconciliation.
+
+
+
+
+
+================  React Hooks ================
+
+Super powerfull variable, state variable
+
+what is functional Component ? -> it is a Noraml javascript Function.
+what is React Element  ? -> it is a plane Javascript Object.
+
+--> Similarly, Hooks is a Normal Javascript Utility function.
+
+ -2 important Hooks
+
+1: useState(): 80% times you will be using this --> Superpowerfull State Variables in React
+2: useEffect(): 20% times you will be using this
+
+-> import this as a Named import, for that you need to use : import {useState } from "react";
+
+it is used to create State Variable
+why we call it as State Variiable ??
+--> Because it maintains the state of your component.
+
+ex: const [listOfRestaurants] = usestate([]);
+
+useState() : This keeps the UI Layer in Sync with the Data Layer.
+
+As soon as the state variable updates/changes it will automatically refresh our components: THis is known as Render.
+
+==> whenever state variable updates/changes react re-renders the component
+
+==> React is only Good at DOM Operations/Manipulations
+
+======== Questions========
+1: what is virtual DOm
+2: Reconciliation  (React Fiber)
+3: React FIber
+4: What is Diff Algorithm ?
+
+
+react file structure
+
+React fiber : https://github.com/acdlite/react-fiber-architecture
+
+
+
+
+
+
+
+
+
+
+
+  
