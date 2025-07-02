@@ -8,8 +8,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
   // Local State Variable - Super powerful variable
-  const [listOfRestaurant, setListOfRestaurant] = useState(resList);   // []
-  const [filteredListOfRestaurant, setfilteredListOfRestaurant] = useState(resList);   // []
+  const [listOfRestaurant, setListOfRestaurant] = useState([]);   // []
+  const [filteredListOfRestaurant, setfilteredListOfRestaurant] = useState([]);   // []
   const [searchText, setSearchText] = useState("");
 
   console.log("Body Rendered");
@@ -87,13 +87,14 @@ const Body = () => {
 
     // Api Call
     const fetchData =async()=> {
-      const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.547077610639285&lng=73.80271643400191&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");  
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.547077610639285&lng=73.80271643400191&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");  
       // given this method by browser   
 
     const json = await data.json();
-    console.log(json?.data?.cards[3].restaurants?.info);  // 43: 00 min
+    //console.log(json?.data?.cards[3].restaurants?.info);  // 43: 00 min
 
-    setListOfRestaurant(json)
+    setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setfilteredListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   // if(listOfRestaurant.length==0){
