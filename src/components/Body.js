@@ -1,9 +1,7 @@
-import resList from "../../utils/mockData"
 import RestaurantCard from "../components/RestaurantCard"
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
-
-
+import { Link } from "react-router";
 
 const Body = () => {
 
@@ -12,7 +10,7 @@ const Body = () => {
   const [filteredListOfRestaurant, setfilteredListOfRestaurant] = useState([]);   // []
   const [searchText, setSearchText] = useState("");
 
-  console.log("Body Rendered");
+  // console.log("Body Rendered");
 
   //const arr = useState(resList)
 
@@ -125,7 +123,7 @@ const Body = () => {
 
                 <button className="filter-btn" 
                 onClick={() =>{
-                   let  filteredlistOfRestaurant = listOfRestaurant.filter(res=> res.info.avgRating >4);
+                   let  filteredlistOfRestaurant = listOfRestaurant.filter(res=> res.info.avgRating >4.2);
                     setfilteredListOfRestaurant(filteredlistOfRestaurant);
 
                 }} 
@@ -136,9 +134,13 @@ const Body = () => {
             <div className="res-container">
                 {
                 filteredListOfRestaurant.map((restaurant) =>(
-                     <RestaurantCard key={restaurant.info.id} resData = {restaurant}/>)
-                )
-                 }
+                     <Link 
+                        key={restaurant.info.id} 
+                        to={"/restaurants/"+restaurant.info.id}>
+                        <RestaurantCard  resData = {restaurant}/>
+                      </Link>
+                    
+                    ))}
               </div>
           </div>
         

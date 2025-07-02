@@ -9,3 +9,7 @@ Routing Configuration:
 Racfe: Short hand to create component.
 
 
+
+==> i,plement Lazy Loading of rRestaurnts in Similar to Swiggy when you go down it shows 100s of restaurnats
+
+
