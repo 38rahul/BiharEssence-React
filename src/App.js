@@ -2,15 +2,21 @@
  import ReactDOM from "react-dom/client";
  import Header from "./components/Header";
  import Body from "./components/Body";
- import About from "./components/About";
  import Contact from "./components/Contact";
  import Error from "./components/Error";
- import Cart from "./components/Cart";
-
  import {createBrowserRouter, Outlet, RouterProvider } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { lazy, Suspense } from 'react';
+//import Grocery from "./components/Grocery";
 
 
+
+//const Grocery = lazy(() => import("./components/Grocery"));
+// Lazy Loading , Chunking
+
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
+const Cart = lazy(() => import("./components/Cart"));
 
 
 // styles
@@ -21,6 +27,7 @@ const StyleCard = () =>{
 
 const AppLayout = () => {
 
+
     return (
         <div className="app">
             <Header/>
@@ -28,6 +35,7 @@ const AppLayout = () => {
         </div>
     )
 }
+
 
 // Configuration: means that some information that will define that what will happen on Specific route.
 const appRouter = createBrowserRouter([
@@ -41,7 +49,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About/>
+                element: <Suspense fallback={<h1>Loading..</h1>} ><About/></Suspense>
             },
             {
                 path: "/contact",
@@ -53,12 +61,17 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Cart/>
+                element:<Suspense fallback= {<h1>Loading..</h1>}> <Cart/></Suspense>
             },
             {
                 path: "/restaurants/:resId",    // resId is dynamic, it can change according to restaurant 
                 element: <RestaurantMenu /> 
+            }, // Grocery
+            {
+                path: "/grocery",    // resId is dynamic, it can change according to restaurant 
+                element: <Suspense fallback={<h1>Loading..</h1>}><Grocery/> </Suspense>
             }
+
         ],
         errorElement: <Error/>
         },

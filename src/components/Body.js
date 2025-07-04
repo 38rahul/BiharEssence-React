@@ -2,6 +2,7 @@ import RestaurantCard from "../components/RestaurantCard"
 import {useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus  from "../../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -100,6 +101,13 @@ const Body = () => {
   // } 
   // conditional Rendering
   // listOfRestaurant.length== 0 ? <Shimmer/>: 
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) return 
+  <h1>
+    Looks like you are Offline!! Please check your internet Connection.
+  </h1>
 
     return  filteredListOfRestaurant.length === 0 ? <Shimmer/>:  (
         <div className="body">
